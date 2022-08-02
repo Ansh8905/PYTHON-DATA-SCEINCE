@@ -15,3 +15,4 @@ print('>>The result is :' , val)
 
 name= input ("Enter ur Name")
 if name.isalpha():
+    
