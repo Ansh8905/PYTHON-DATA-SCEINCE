@@ -1,7 +1,3 @@
-from cgi import print_directory
-from resource import prlimit
-
-
 my_dict = { 'name': 'jack' , 'age': 26}
 
 print(my_dict['name'])
