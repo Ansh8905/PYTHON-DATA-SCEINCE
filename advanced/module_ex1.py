@@ -17,3 +17,8 @@ print("pi",math.pi)
 print("e", math.e)
 
 print("sin", math.degrees(math.sin(150)))
+
+
+
+x = math.sin(40)
+print(x)
