@@ -28,4 +28,6 @@ def player_controls():
     elif keyboard.RIGHT and  not p.right > WIDTH:
         p.x += speed
         p.angle = -10
+
+
 pgzrun.go()
