@@ -6,7 +6,7 @@ WIDTH = 800
 HEIGHT = 500
 
 p = Actor ('char1', pos= (WIDTH//2 , HEIGHT//2))
-e = Actor ('char2' , pos = (100,100))
+e = Actor ('enemy' , pos = (100,100))
 c = Actor ('item1')
 c.x = randint(100, WIDTH-100)
 c.y = randint(100, HEIGHT-100)
@@ -19,8 +19,8 @@ is_game_over = False
 is_game_started = False
 
 score = 0
-speed_p = 4
-speed_e = 3
+speed_p = 3
+speed_e = 1
 
 
 def draw():
@@ -28,19 +28,26 @@ def draw():
         show_intro_screen()
 
     elif  is_game_started and not is_game_over:
-        screen.fill("white")
-        screen.draw.text(f'Score: {score}',(20,20))
-        p.draw()
-        e.draw()
-        c.draw()
+        show_game_screen()
     elif is_game_over:
-        pass
+        show_game_over_screen()
 
 def show_intro_screen():
     screen.fill('yellow')
     screen.draw.text('MY GAME',center=(WIDTH//2 , HEIGHT//2), color ='red',fontsize=100)
     screen.draw.text('Press space to start',center=(WIDTH//2 , HEIGHT//2+50), color ='red' )
 
+def show_game_screen():
+    screen.fill("black")
+    screen.draw.text(f'Score: {score}',(20,20))
+    p.draw()
+    e.draw()
+    c.draw()
+
+def game_over_screen():
+    screen.fill('red')
+    screen.draw.text('GAME OVER',center=(WIDTH//2, HEIGHT//2), color='yellow',fontsize=100)
+    screen.draw.text(f'score : {score}', center=(WIDTH//2, HEIGHT//2+50),color='yellow')
 
 def update():
     global  is_game_started 
@@ -61,8 +68,8 @@ def enemy_movement():
     if p.y < e.y:
         e.y -= espeed
     if p.colliderect(e):
-        p.image= 'item2'
-        is_game_over = true
+        p.image= 'splat'
+        is_game_over = True
 
 def check_score():
     global score
