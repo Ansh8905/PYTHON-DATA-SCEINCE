@@ -128,5 +128,5 @@ def check_for_end_of_level():
     global level
     if len(enemies) == 0:
         level = level + 1
-          create_enemies()
+        create_enemies()
 pgzrun.go() 
