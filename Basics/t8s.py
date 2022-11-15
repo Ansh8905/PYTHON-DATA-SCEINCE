@@ -2,6 +2,8 @@ from lib2to3.pytree import HUGE
 from turtle import *
 import colorsys
 
+from numpy import square
+
 speed(0)
 pensize(3)
 bgcolor('black')
